@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import pandas as pd
 from matplotlib.backends.backend_pdf import PdfPages
 
 import setupaxis
@@ -15,12 +14,15 @@ def my_plot(layout, data):
 
 if __name__ == '__main__':
 
-    my_data = PreProcess('/Users/zyy/Desktop/607.xlsx').process()
+    path = '/Users/zyy/Downloads/'
+    filename = 'processed_ecg.xlsx'
+
+    my_data = PreProcess(path + filename).process()
 
     with PdfPages('all_in_one.pdf', keep_empty=True) as pdf:
 
         plt.figure(figsize=(10, 7))
-        plt.subplots_adjust(bottom=0.08, top=0.92, left=0.01, right=0.99, hspace=0.2)
+        plt.subplots_adjust(bottom=0.05, top=0.95, left=0.05, right=0.95, hspace=0.05)
 
         subplot_index = -1
         slice_data_len = 2500
@@ -36,7 +38,7 @@ if __name__ == '__main__':
                 pdf.savefig(papertype='a4')
 
                 plt.figure(figsize=(10, 7))
-                plt.subplots_adjust(bottom=0.08, top=0.92, left=0.01, right=0.99, hspace=0.2)
+                plt.subplots_adjust(bottom=0.05, top=0.95, left=0.05, right=0.95, hspace=0.05)
 
         if subplot_index != 3:
             pdf.savefig(papertype='a4')

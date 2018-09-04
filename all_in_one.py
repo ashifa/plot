@@ -14,8 +14,8 @@ def my_plot(layout, data):
 
 if __name__ == '__main__':
 
-    path = '/Users/zyy/Downloads/'
-    filename = 'processed_ecg.xlsx'
+    path = 'C:\\Users\\user\\Downloads\\'
+    filename = '845.xlsx'
 
     my_data = PreProcess(path + filename).process()
 

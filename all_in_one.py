@@ -19,7 +19,7 @@ if __name__ == '__main__':
 
     my_data = PreProcess(path + filename).process()
 
-    with PdfPages('all_in_one.pdf', keep_empty=True) as pdf:
+    with PdfPages(filename.replace('xlsx','pdf'), keep_empty=True) as pdf:
 
         plt.figure(figsize=(10, 7))
         plt.subplots_adjust(bottom=0.05, top=0.95, left=0.05, right=0.95, hspace=0.05)

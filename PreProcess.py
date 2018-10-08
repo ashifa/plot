@@ -1,8 +1,4 @@
-import matplotlib.pyplot as plt
 import pandas as pd
-from matplotlib.backends.backend_pdf import PdfPages
-
-import setupaxis
 
 
 class PreProcess(object):

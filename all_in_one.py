@@ -15,11 +15,16 @@ def my_plot(layout, data):
 if __name__ == '__main__':
 
     path = 'C:\\Users\\user\\Downloads\\'
-    filename = '845.xlsx'
+    path = r'C:\Users\user\Desktop\整机\典型927\朱媛媛\\'
+    
+    filename = 'processed_ecg.xlsx'
+    filename = r'16：57.xlsx'
 
-    my_data = PreProcess(path + filename).process()
+    fullpath_name = path + filename
 
-    with PdfPages(filename.replace('xlsx','pdf'), keep_empty=True) as pdf:
+    my_data = PreProcess(fullpath_name).process()
+
+    with PdfPages(fullpath_name.replace('xlsx', 'pdf'), keep_empty=True) as pdf:
 
         plt.figure(figsize=(10, 7))
         plt.subplots_adjust(bottom=0.05, top=0.95, left=0.05, right=0.95, hspace=0.05)
@@ -35,10 +40,13 @@ if __name__ == '__main__':
 
             my_data = my_data.slice_shift(-slice_data_len)
             if subplot_index == 3:
+                # each page contains 4 plotting
                 pdf.savefig(papertype='a4')
 
+                # start a new page to plot
                 plt.figure(figsize=(10, 7))
                 plt.subplots_adjust(bottom=0.05, top=0.95, left=0.05, right=0.95, hspace=0.05)
 
+        # save the rest plotting
         if subplot_index != 3:
             pdf.savefig(papertype='a4')

@@ -8,17 +8,18 @@ from PreProcess import PreProcess
 def my_plot(layout, data):
     print(layout)
     plt.subplot(4, 1, layout)
-    plt.plot(data.get_values(), color='black', linewidth=0.2)
+    plt.plot(data.get_values()  , color='black', linewidth=0.5)
     setupaxis.setup_axis()
 
 
 if __name__ == '__main__':
 
     path = 'C:\\Users\\user\\Downloads\\'
-    path = r'C:\Users\user\Desktop\整机\典型927\朱媛媛\\'
-    
     filename = 'processed_ecg.xlsx'
-    filename = r'16：57.xlsx'
+    #filename = '29.xlsx'
+
+    #path = r'C:\Users\user\Desktop\整机\典型927\朱媛媛\\'
+    #filename = r'16：57.xlsx'
 
     fullpath_name = path + filename
 

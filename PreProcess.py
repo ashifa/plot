@@ -7,7 +7,7 @@ class PreProcess(object):
         self.__data = pd.read_excel(file_path, names=['volt'])
         print(self.__data.columns)
 
-    def process(self):
+    def process(self, is_add_step=True):
         clip_len = 100
 
         tmp = self.__data.head(clip_len)
@@ -16,7 +16,8 @@ class PreProcess(object):
             self.__data = self.__data.slice_shift(-clip_len)
             tmp = self.__data.head(clip_len)
 
-        self.add_step_signal()
+        if is_add_step:
+            self.add_step_signal()
         return self.__data
 
     def add_step_signal(self):

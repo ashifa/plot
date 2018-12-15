@@ -12,17 +12,7 @@ def my_plot(layout, data):
     setupaxis.setup_axis()
 
 
-if __name__ == '__main__':
-
-    path = 'C:\\Users\\user\\Downloads\\'
-    filename = 'processed_ecg.xlsx'
-    #filename = '29.xlsx'
-
-    #path = r'C:\Users\user\Desktop\整机\典型927\朱媛媛\\'
-    #filename = r'16：57.xlsx'
-
-    fullpath_name = path + filename
-
+def genPdf(fullpath_name):
     my_data = PreProcess(fullpath_name).process()
 
     with PdfPages(fullpath_name.replace('xlsx', 'pdf'), keep_empty=True) as pdf:
@@ -51,3 +41,15 @@ if __name__ == '__main__':
         # save the rest plotting
         if subplot_index != 3:
             pdf.savefig(papertype='a4')
+
+if __name__ == '__main__':
+
+    path = 'C:\\Users\\user\\Downloads\\'
+    filename = 'processed_ecg.xlsx'
+    #filename = '29.xlsx'
+
+    #path = r'C:\Users\user\Desktop\整机\典型927\朱媛媛\\'
+    #filename = r'16：57.xlsx'
+
+    fullpath_name = path + filename
+    genPdf(fullpath_name)
